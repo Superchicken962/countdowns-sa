@@ -1,16 +1,25 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<h1>South Australian Holiday Countdowns</h1>
-<title>SA Holiday Countdowns</title>
+<h1>Countdowns for South Australia</h1>
 <link rel="stylesheet" href="style.css">
-<h2>Christmas Countdown</h2>
 </head>
 <body>
-<p id="countdown-christmas"></p>
+<form>
+<input id="myInput" type="text" value="time9" />
+<input id="myInput" type="submit" onclick="time9()" />
+</form>
+<script>
+    var time9 = "Sep 25, 2020 00:00:00";
+    localStorage.setItem("time9", myInput);
+    document.getElementById("myInput").value = time9;
+</script>
+<h2>Your Custom Countdown</h2>
+<p id="countdown-custom"></p>
     <script>
+      var time9 = content.replace("myInput", contentJS);
         // Set the date we're counting down to
-        var countDownDate = new Date("Dec 25, 2020 00:00:00").getTime();
+        var countDownDate = new Date(time9).getTime();
         
         // Update the count down every 1 second
         var x = setInterval(function() {
@@ -28,17 +37,17 @@
           var seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
           // Display the result in the element with id="demo"
-          document.getElementById("countdown-christmas").innerHTML = days + "d " + hours + "h "
+          document.getElementById("countdown-custom").innerHTML = days + "d " + hours + "h "
           + minutes + "m " + seconds + "s ";
         
           // If the count down is finished, write some text
           if (distance < 0) {
             clearInterval(x);
-            document.getElementById("countdown-christmas").innerHTML = "0d 0h 0m 0s";
+            document.getElementById("countdown-custom").innerHTML = "0d 0h 0m 0s";
           }
         }, 1000);
         </script>
-<h2>...Until Christmas Day</h2>
+<h2>...Until Your Custom Date</h2>
 <a href="index.html"><h3>Click to go back to countdown list...</h3></a>
 </body>
 </html>
